@@ -1,0 +1,110 @@
+
+
+/*                                  */
+    /*  INSERT A LIST IN PROPS  */
+
+
+const List = (props) => {
+    { /* Change code below this line */ }
+    return <p>{props.tasks.join(", ")}</p>
+    { /* Change code above this line */ }
+  };
+  
+  class ToDo extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div>
+          <h1>To Do Lists</h1>
+          <h2>Today</h2>
+          <List tasks={["ToDo", "Today", "Code"]} / >
+          <h2>Tomorrow</h2>
+          <List tasks={["Todo", "Today", "Code"]} / >
+        </div>
+      );
+    }
+  };
+
+
+/*                          */
+    /*  DEFAULT PROPS  */
+
+
+  const ShoppingCart = (props) => {
+  return (
+    <div>
+      <h1>Shopping Cart Component</h1>
+    </div>
+  )
+};
+
+ShoppingCart.defaultProps = {
+    items: 0
+}
+
+
+/*                                          */
+    /*  ALTERANDO A PROPRIEDADE PADRÃO  */
+
+
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+}
+
+Items.defaultProps = {
+  quantity: 0
+}
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    { /* Altere o código abaixo desta linha */ }
+    return <Items quantity={10} />
+    { /* Altere o código acima desta linha */ }
+  }
+};
+
+
+/*                                                              */
+    /*  DEFININDO UMA REGRAS DE TIPAGEM PARA PROPRIEDADES  */
+
+
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+};
+
+// Altere o código abaixo desta linha
+Items.propTypes = { quantity: PropTypes.number.isRequired };
+// Altere o código acima desta linha
+
+Items.defaultProps = {
+  quantity: 0
+};
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items />
+  }
+};
+
+
+/*
+
+Acessar props usando this.props
+Os últimos desafios cobriram as formas básicas de passar propriedades para componentes filhos. Mas e se o componente filho para o qual você está passando uma propriedade é um componente de classe ES6, em vez de um componente funcional sem estado? O componente da classe ES6 usa uma convenção ligeiramente diferente para acessar as propriedades.
+
+Sempre que você se refere a um componente de classe dentro dele mesmo, você usa a palavra-chave this. Para acessar props dentro de um componente de classe, você adiciona this ao início do código que você usar para acessá-lo. Por exemplo, se um componente de classe ES6 possui uma prop chamada data, você escreve {this.props.data} em JSX.
+
+Renderize uma instância do componente Welcome no componente pai App. Aqui, dê a Welcome uma "prop" name e atribua a ela um valor de uma string. Dentro do elemento filho, Welcome, acesse a propriedade name dentro das tags strong.
+
+*/
+
+
+
