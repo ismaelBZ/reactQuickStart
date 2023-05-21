@@ -98,6 +98,7 @@ class ShoppingCart extends React.Component {
 /*
 
 Acessar props usando this.props
+
 Os últimos desafios cobriram as formas básicas de passar propriedades para componentes filhos. Mas e se o componente filho para o qual você está passando uma propriedade é um componente de classe ES6, em vez de um componente funcional sem estado? O componente da classe ES6 usa uma convenção ligeiramente diferente para acessar as propriedades.
 
 Sempre que você se refere a um componente de classe dentro dele mesmo, você usa a palavra-chave this. Para acessar props dentro de um componente de classe, você adiciona this ao início do código que você usar para acessá-lo. Por exemplo, se um componente de classe ES6 possui uma prop chamada data, você escreve {this.props.data} em JSX.
@@ -106,5 +107,135 @@ Renderize uma instância do componente Welcome no componente pai App. Aqui, dê 
 
 */
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+            { /* Altere o código abaixo desta linha */ }
+            <Welcome name="lingLing"/>
+            { /* Altere o código acima desta linha */ }
+        </div>
+    );
+  }
+};
+
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+          { /* Altere o código abaixo desta linha */ }
+          <p>Hello, <strong>{this.props.name}</strong>!</p>
+          { /* Altere o código acima desta linha */ }
+        </div>
+    );
+  }
+};
 
 
+/*
+
+O editor de código tem um componente CampSite que renderiza um componente Camper como filho. Defina o componente Camper e atribua a ele as propriedades padrão de { name: 'CamperBot' }. Dentro do componente Camper, renderize qualquer código que você quiser, mas certifique-se de ter um elemento p que inclua apenas o valor name que é passado como uma prop. Finalmente, defina propTypes no componente Camper para exigir que o name seja fornecido como uma prop e verifique se é do tipo string.
+
+*/
+
+
+class CampSite extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper/>
+      </div>
+    );
+  }
+};
+// Altere o código abaixo desta linha
+
+class Camper extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render () {
+    return (
+      <p>{this.props.name}</p>
+    )
+  }
+}
+
+Camper.defaultProps = { name: "CamperBot" }
+Camper.propTypes = { name: PropTypes.string.isRequired }
+
+
+/*
+Criar um componente stateful
+Um dos tópicos mais importantes em React é state. State consiste em qualquer dado que sua aplicação precisar saber, que pode ser alterado durante o tempo. Você quer que seus aplicativos respondam a mudanças de estado e apresentem uma interface atualizada quando necessário. React oferece uma boa solução para o gerenciamento de estados de aplicações web modernas.
+
+Você pode criar um estado em um componente React ao declarar a propriedade state na classe do componente no seu constructor. Isso inicializa o componente com state quando é criado. A propriedade state deve ser definida para um object JavaScript. Declarando, ele se parece com isso:
+
+this.state = {
+
+}
+Você precisa acessar o objeto state ao longo da vida do seu componente. Você pode atualizá-lo, renderizá-lo na sua interface do usuário e o passar como props para componentes filhos. O objeto state pode ser tão complexo ou simples quanto você precise. Note que você precisa criar uma classe de componente ao estender React.Component para criar state dessa forma.
+
+Há um componente no editor de código que está tentando renderizar a propriedade firstName de seu state. No entanto, não há nenhum state definido. Inicialize o componente com state no constructor e atribua o seu nome para a propriedade firstName.
+
+*/
+
+class StatefulComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Altere apenas o código abaixo desta linha
+
+    // Altere apenas o código acima desta linha
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.firstName}</h1>
+      </div>
+    );
+  }
+};
+
+
+/*
+
+Criar um componente stateful
+Um dos tópicos mais importantes em React é state. State consiste em qualquer dado que sua aplicação precisar saber, que pode ser alterado durante o tempo. Você quer que seus aplicativos respondam a mudanças de estado e apresentem uma interface atualizada quando necessário. React oferece uma boa solução para o gerenciamento de estados de aplicações web modernas.
+
+Você pode criar um estado em um componente React ao declarar a propriedade state na classe do componente no seu constructor. Isso inicializa o componente com state quando é criado. A propriedade state deve ser definida para um object JavaScript. Declarando, ele se parece com isso:
+
+this.state = {
+
+}
+Você precisa acessar o objeto state ao longo da vida do seu componente. Você pode atualizá-lo, renderizá-lo na sua interface do usuário e o passar como props para componentes filhos. O objeto state pode ser tão complexo ou simples quanto você precise. Note que você precisa criar uma classe de componente ao estender React.Component para criar state dessa forma.
+
+Há um componente no editor de código que está tentando renderizar a propriedade firstName de seu state. No entanto, não há nenhum state definido. Inicialize o componente com state no constructor e atribua o seu nome para a propriedade firstName.
+
+*/
+
+class StatefulComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Altere apenas o código abaixo desta linha
+
+    // Altere apenas o código acima desta linha
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.firstName}</h1>
+      </div>
+    );
+  }
+};
